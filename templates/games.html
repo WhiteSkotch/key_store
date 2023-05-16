@@ -1,0 +1,89 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<!--     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+    <title>Lohotron.ru</title>
+</head>
+<body>
+
+<header>
+<ul class="nav">
+    <li id="logo">
+        <a href="#">Lohotron.ru</a>
+    </li>
+    <li id="options">
+        <a href="#">Покупателям</a>
+        <ul class="subnav">
+            <li><a href="#">Об магазине</a></li>
+            <li><a href="#">Гарантии</a></li>
+        </ul>
+    </li>
+    <li id="search">
+        <form action="" method="get">
+            <input name="search_text" id="search_text" placeholder="Поиск..." type="text">
+            <input name="search_button" id="search_button" type="button"  value="Найти">
+        </form>
+    </li>
+    <li id="personal_cabinet">
+        <a href="#">Личный кабинет</a>
+    </li>
+    <li id="basket">
+        <a href="#">Корзина</a>
+    </li>
+</ul>
+</header>
+
+<div class="cards">
+  <!-- Карточка товара -->
+<div class="card">
+  <!-- Верхняя часть -->
+  <div class="card__top">
+    <!-- Изображение-ссылка товара -->
+    <a href="#" class="card__image">
+      <img
+        src="XxA5bTac5EnzaNVIPQpirQ.jpeg" 
+      />
+    </a>
+    <!-- Скидка на товар -->
+    <div class="card__label">-10%</div>
+  </div>
+  <!-- Нижняя часть -->
+  <div class="card__bottom">
+    <!-- Цены на товар (с учетом скидки и без)-->
+    <div class="card__prices">
+      <div class="card__price card__price">150 000 R</div>
+    </div>
+    <!-- Ссылка-название товара -->
+    <a href="#" class="card__title">
+      Witcher 3
+    </a>
+    <!-- Кнопка добавить в корзину -->
+    <button class="card__add">В корзину</button>
+  </div>
+</div>
+
+<footer class="footer-distributed">
+
+      <div class="footer-social">
+        <a href="#" class="btn tg"></a>
+        <a href="#" class="btn vk"></a>
+      </div>
+
+      <div class="footer-center">
+        <p class="footer-links">
+          <a href="#">Соглашение</a>
+          <a href="#">Поддержка</a>
+          <a href="#">Политика возвратов</a>
+        </p>
+        <p>Lohotron.ru &copy; 2023</p>
+      </div>
+
+</footer>
+{% for game in games %}
+            <li>{{ game.id }} - {{ game.name }}</li>
+{% endfor %}
+</body>
+</html>

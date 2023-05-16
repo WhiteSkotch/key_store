@@ -1,3 +1,5 @@
 */init.py
 db.sqlite3
-.idea
+.idea/
+anna_venv/
+*/__pycache__/
