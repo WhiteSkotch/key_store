@@ -6,3 +6,4 @@ def get_games(request):
     context = {}
     context['games'] = Game.objects.all()
     return render(request, 'games.html', context)
+
