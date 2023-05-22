@@ -3,7 +3,10 @@ from django.db import models
 
 class Game(models.Model):
     name = models.CharField(max_length=128)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=7, decimal_places=2)
+    description = models.TextField()
+    system_requirements = models.TextField()
+    image = models.ImageField(upload_to='accounts/')
 
 
 class Key(models.Model):
