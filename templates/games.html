@@ -11,7 +11,7 @@
 <header>
     <ul class="nav">
         <li id="logo">
-            <a href="#">Lohotron.ru</a>
+            <a href="{% url 'games'%}">Lohotron.ru</a>
         </li>
         <li id="options">
             <a href="#">Покупателям</a>
@@ -43,7 +43,7 @@
             <!-- Изображение-ссылка товара -->
             <a href="#" class="card__image">
 
-                <img src="{% static 'img/XxA5bTac5EnzaNVIPQpirQ.jpeg' %}"
+                <img src="{% static 'img/XxA5bTac5EnzaNVIPQpirQ.jpeg' %}" />
             </a>
             <!-- Скидка на товар -->
             <div class="card__label">-10%</div>
@@ -55,7 +55,7 @@
                 <div class="card__price card__price">{{ game.price }} R</div>
             </div>
             <!-- Ссылка-название товара -->
-            <a href="#" class="card__title">
+            <a href="{% url 'game_detail' game.pk %}" class="card__title">
                 {{ game.name }}
             </a>
             <!-- Кнопка добавить в корзину -->
