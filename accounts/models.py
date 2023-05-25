@@ -6,7 +6,7 @@ class Game(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     description = models.TextField()
     system_requirements = models.TextField()
-    image = models.ImageField(upload_to='accounts/')
+    image = models.ImageField(upload_to='static/img')
 
 
 class Key(models.Model):

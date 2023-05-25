@@ -43,7 +43,9 @@
             <!-- Изображение-ссылка товара -->
             <a href="#" class="card__image">
 
-                <img src="{% static 'img/XxA5bTac5EnzaNVIPQpirQ.jpeg' %}" />
+                <!--<img src="{% static 'img/XxA5bTac5EnzaNVIPQpirQ.jpeg' %}" />
+            </a>-->
+            <img src="{{ game.image.url }}" alt="{{game.name}}"/>
             </a>
             <!-- Скидка на товар -->
             <div class="card__label">-10%</div>
