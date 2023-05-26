@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="{% static 'css/style1.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/style2.css'%}" type="text/css">
 <title>Lohotron.ru</title>
 </head>
 <body>
@@ -26,7 +26,7 @@
         </form>
     </li>
     <li id="personal_cabinet">
-        <a href="{% url 'login'%}">Личный кабинет</a>
+        <a href="#">Личный кабинет</a>
     </li>
     <li id="basket">
         <a href="#">Корзина</a>
@@ -34,46 +34,50 @@
 </ul>
 </header>
 
-<main class="container">
- 
-  <div class="left-column">
-    <img src="{{ game.image.url }}" alt="{{game.name}}"/>
-  </div>
- 
-  <div class="right-column">
-
-    <div class="product-description">
-      <h1>{{ game.name }}</h1>
-      <p>{{ game.description }}</p>
-    </div>
-    <div class="product-requirements">
-    <h1>Системные требования:</h1>
-    <h3> {{game.system_requirements}} </h3>
-    </div>
-
-    <div class="product-price">
-      <span>{{ game.price }} R</span>
-      <a href="#" class="cart-btn">Добавить в корзину</a>
-    </div>
-  </div>
+<main>
+    <div class="container">
+	<div class="screen">
+		<div class="screen__content">
+		<p>Вход в личный кабинет</p>
+			<form method="post" class="login">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+					<button class="button login__submit"><span class="submit">Войти</span>
+				</button>
+				<a  href="">Зарегистрироваться</a>
+				<a  href="">Забыли пароль?</a>
+			</form>
+		</div>
+</div>
+</div>
 </main>
- 
-  
 
 <footer class="footer-distributed">
+
       <div class="footer-social">
+
         <a href="#" class="btn tg"></a>
         <a href="#" class="btn vk"></a>
+
+
       </div>
+
       <div class="footer-center">
+
         <p class="footer-links">
+
           <a href="#">Соглашение</a>
+
           <a href="#">Поддержка</a>
+
           <a href="#">Политика возвратов</a>
+
         </p>
+
         <p>Lohotron.ru &copy; 2023</p>
       </div>
+
     </footer>
-  
+
 </body>
 </html>
