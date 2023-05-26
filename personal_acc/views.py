@@ -16,7 +16,7 @@ def registration(request):
         form = MyUserCreationForm()
     return render(request, 'registration.html', {'form': form})
 
-def login(request):
+def log(request):
     if request.method == 'POST':
         form = MyAuthenticationForm(request, data=request.POST)
         if form.is_valid():
