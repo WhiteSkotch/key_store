@@ -1,0 +1,132 @@
+
+.shopping-cart {
+  width: 750px;
+  min-height: 250px;
+  margin: 80px auto 0px;
+  background: white;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #d9d9d9;
+  color: black;
+
+}
+.title {
+  height: 30px;
+  border-bottom: 0 0 1px solid #E1E8EE;
+  padding: 20px 30px;
+  font-size: 36px;
+  font-weight: 400;
+  display: inline-block;
+}
+ 
+.item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+ 
+.item:nth-child(3) {
+  border-top:  1px solid #E1E8EE;
+  border-bottom:  1px solid #E1E8EE;
+}
+.buttons {
+  padding-top: 10px;
+  width: 90px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.delete-btn {
+Cursor: pointer;
+  width: 80px;
+ display: block;
+font-size: 26px;
+ float: right;
+}
+ 
+.image {
+  display: block;
+    padding-top: 10px;
+  width: 115px;
+  height: 100px;
+    padding-right: 20px;
+}
+
+.image > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
+}
+ 
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 300px;
+  display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+ 
+.description span {
+  font-size: 26px;
+  font-weight: 400;
+
+}
+ 
+.price {
+  display: block;
+  width: 83px;
+  padding-top: 10px;
+  font-size: 26px;
+  font-weight: 300;
+ margin-top: auto;
+ margin-bottom: auto;
+    float: right;
+}
+
+
+
+.all-price
+{
+  width: 750px;
+  min-height: 100px;
+  margin: 0px auto 0px;
+  background: white;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.buy{
+  padding-top: 10px;
+  width: 90px;
+  margin: auto 20px auto 20px;     
+}
+
+.buy1 {
+Cursor: pointer;
+  width: 100px;
+font-size: 26px;
+    text-align: center;
+}
+
+.allprice {
+  display: flex;
+  min-width: 250px;
+  padding-top: 10px;
+  font-size: 26px;
+  font-weight: 300;
+ margin-top: auto;
+ margin-bottom: auto;
+}
+
+.all-price span {
+  font-size: 26px;
+  font-weight: 400;
+
+}

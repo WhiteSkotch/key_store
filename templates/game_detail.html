@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="{% static 'css/style1.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/body_game_detail.css'%}" type="text/css">
 <title>Lohotron.ru</title>
 </head>
 <body>
@@ -48,7 +49,7 @@
     </div>
     <div class="product-requirements">
     <h1>Системные требования:</h1>
-    <h3> {{game.system_requirements}} </h3>
+    <p> {{game.system_requirements}} </p>
     </div>
 
     <div class="product-price">
