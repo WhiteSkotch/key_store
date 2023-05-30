@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from .forms import MyUserCreationForm, MyAuthenticationForm
+from .models import *
 
 def registration(request):
     if request.method == 'POST':
         form = MyUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            form.save(commit=True)
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
