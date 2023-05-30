@@ -99,18 +99,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Authentication backends
+AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
+#'ru-RU'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
-
+LOGIN_REDIRECT_URL = 'home'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

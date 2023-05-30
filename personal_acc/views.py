@@ -1,35 +1,15 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from .forms import MyUserCreationForm, MyAuthenticationForm
-from .models import *
+from django.shortcuts import render
 
-def registration(request):
-    if request.method == 'POST':
-        form = MyUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save(commit=True)
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=password)
-            login(request, user)
-            return redirect('home')
-    else:
-        form = MyUserCreationForm()
-    return render(request, 'registration.html', {'form': form})
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 
-def log(request):
-    if request.method == 'POST':
-        form = MyAuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-    else:
-        form = MyAuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+
+class SignUpView(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
+
 
 def home(request):
     return render(request, 'lk.html')

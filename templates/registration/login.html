@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
-<link rel="stylesheet" href="{% static 'css/body_game_detail.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/body_log_reg.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
 <title>Lohotron.ru</title>
 </head>
 <body>
@@ -16,8 +16,8 @@
     <li id="options">
         <a href="#">Покупателям</a>
         <ul class="subnav">
-            <li><a href="{% url 'aboutstore'%}">Об магазине</a></li>
-            <li><a href="{% url 'guarantees'%}">Гарантии</a></li>
+            <li><a href="#">Об магазине</a></li>
+            <li><a href="#">Гарантии</a></li>
         </ul>
     </li>
     <li id="search">
@@ -35,46 +35,49 @@
 </ul>
 </header>
 
-<main class="container">
- 
-  <div class="left-column">
-    <img src="{{ game.image.url }}" alt="{{game.name}}"/>
-  </div>
- 
-  <div class="right-column">
-
-    <div class="product-description">
-      <h1>{{ game.name }}</h1>
-      <p>{{ game.description }}</p>
-    </div>
-    <div class="product-requirements">
-    <h1>Системные требования:</h1>
-    <p> {{game.system_requirements}} </p>
-    </div>
-
-    <div class="product-price">
-      <span>{{ game.price }} R</span>
-      <a href="#" class="cart-btn">Добавить в корзину</a>
-    </div>
-  </div>
+<main>
+    <div class="container">
+	<div class="screen">
+		<div class="screen__content">
+		<p>Вход в личный кабинет</p>
+			<form method="post" class="login">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+					<button class="button login__submit"><span class="submit">Войти</span>
+				</button>
+				<a  href="{% url 'signup'%}">Зарегистрироваться</a>
+			</form>
+		</div>
+</div>
+</div>
 </main>
- 
-  
 
 <footer class="footer-distributed">
+
       <div class="footer-social">
+
         <a href="#" class="btn tg"></a>
         <a href="#" class="btn vk"></a>
+
+
       </div>
+
       <div class="footer-center">
+
         <p class="footer-links">
-          <a href="{% url 'agreement'%}">Соглашение</a>
-          <a href="{% url 'support'%}">Поддержка</a>
-          <a href="{% url 'refund'%}">Политика возвратов</a>
+
+          <a href="#">Соглашение</a>
+
+          <a href="#">Поддержка</a>
+
+          <a href="#">Политика возвратов</a>
+
         </p>
+
         <p>Lohotron.ru &copy; 2023</p>
       </div>
+
     </footer>
-  
+
 </body>
 </html>

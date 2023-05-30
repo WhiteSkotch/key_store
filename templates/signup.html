@@ -2,8 +2,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-    <link rel="stylesheet" href="{% static 'css/body_log_reg.css'%}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/text.css'%}" type="text/css">
 <title>Lohotron.ru</title>
 </head>
 <body>
@@ -16,8 +16,8 @@
     <li id="options">
         <a href="#">Покупателям</a>
         <ul class="subnav">
-            <li><a href="#">Об магазине</a></li>
-            <li><a href="#">Гарантии</a></li>
+            <li><a href="{% url 'aboutstore'%}">Об магазине</a></li>
+            <li><a href="{% url 'guarantees'%}">Гарантии</a></li>
         </ul>
     </li>
     <li id="search">
@@ -39,13 +39,12 @@
     <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-		<p>Вход в личный кабинет</p>
+		<p>Регистрация</p>
 			<form method="post" class="login">
                     {% csrf_token %}
                     {{ form.as_p }}
-					<button class="button login__submit"><span class="submit">Войти</span>
+					<button class="button login__submit"><span class="submit">Зарегистрироваться</span>
 				</button>
-				<a  href="{% url 'registration'%}">Зарегистрироваться</a>
 			</form>
 		</div>
 </div>
@@ -66,11 +65,11 @@
 
         <p class="footer-links">
 
-          <a href="#">Соглашение</a>
+          <a href="{% url 'agreement'%}">Соглашение</a>
 
-          <a href="#">Поддержка</a>
+          <a href="{% url 'support'%}">Поддержка</a>
 
-          <a href="#">Политика возвратов</a>
+          <a href="{% url 'refund'%}">Политика возвратов</a>
 
         </p>
 

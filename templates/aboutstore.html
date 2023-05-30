@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
-<link rel="stylesheet" href="{% static 'css/body_game_detail.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/text.css'%}" type="text/css">
 <title>Lohotron.ru</title>
 </head>
 <body>
@@ -36,44 +36,45 @@
 </header>
 
 <main class="container">
- 
-  <div class="left-column">
-    <img src="{{ game.image.url }}" alt="{{game.name}}"/>
-  </div>
- 
-  <div class="right-column">
 
-    <div class="product-description">
-      <h1>{{ game.name }}</h1>
-      <p>{{ game.description }}</p>
-    </div>
-    <div class="product-requirements">
-    <h1>Системные требования:</h1>
-    <p> {{game.system_requirements}} </p>
-    </div>
+    <h2>О магазине</h2>
 
-    <div class="product-price">
-      <span>{{ game.price }} R</span>
-      <a href="#" class="cart-btn">Добавить в корзину</a>
-    </div>
-  </div>
+<p> - Сайт работает c 2023 года. </p>
+<p> - На товары могут быть скидки от 5%.</p>
+<p> - Хоть мы и начинающий магазин, мы стараемся каждый день, чтобы обеспечить Вам максимальное удовлетворение от пользования магазином.</p>
+<p> - Все новинки выходят в их официальный день релиза.</p>
+<p> - Сайт работает для всех стран, включая СНГ и Россию. Некоторые товары имеют региональные ограничения. </p>
+<p> - Все продаваемые ключи закупаются у официальных дилеров, которые работают напрямую с издателями. В том числе с издателями: 1C, 2K, Bandai Namco, Curve Digital, Capcom, Codemasters, Deep Silver, Disney, IO Interactive, Iceberg Interactive ,Nordic Games, Paradox, Plug-in-Digital, Take-Two Interactive, Team17, Ubisoft, Бука, Новый Диск и другие!</p>
+
 </main>
  
   
 
 <footer class="footer-distributed">
+
       <div class="footer-social">
+
         <a href="#" class="btn tg"></a>
         <a href="#" class="btn vk"></a>
+     
+
       </div>
+
       <div class="footer-center">
+
         <p class="footer-links">
+
           <a href="{% url 'agreement'%}">Соглашение</a>
+
           <a href="{% url 'support'%}">Поддержка</a>
+
           <a href="{% url 'refund'%}">Политика возвратов</a>
+
         </p>
+
         <p>Lohotron.ru &copy; 2023</p>
       </div>
+
     </footer>
   
 </body>

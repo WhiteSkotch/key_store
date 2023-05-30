@@ -1,0 +1,23 @@
+.container
+{
+    color:white;
+    margin: 110px 80px 0 80px;
+    font-size: 19px;
+    font-family: sans-serif, Arial;
+}
+
+.container p
+{
+    padding-top:20px;
+}
+
+.container h2
+{
+    text-align: center;
+}
+
+.container a
+{
+      text-decoration: none;
+      color: #1f7f5c;
+}

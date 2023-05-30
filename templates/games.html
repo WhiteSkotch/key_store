@@ -17,8 +17,8 @@
         <li id="options">
             <a href="#">Покупателям</a>
             <ul class="subnav">
-                <li><a href="#">Об магазине</a></li>
-                <li><a href="#">Гарантии</a></li>
+                <li><a href="{% url 'aboutstore'%}">Об магазине</a></li>
+                <li><a href="{% url 'guarantees'%}">Гарантии</a></li>
             </ul>
         </li>
         <li id="search">
@@ -77,9 +77,9 @@
 
         <div class="footer-center">
             <p class="footer-links">
-                <a href="#">Соглашение</a>
-                <a href="#">Поддержка</a>
-                <a href="#">Политика возвратов</a>
+                <a href="{% url 'agreement'%}">Соглашение</a>
+                <a href="{% url 'support'%}">Поддержка</a>
+                <a href="{% url 'refund'%}">Политика возвратов</a>
             </p>
             <p>Lohotron.ru &copy; 2023</p>
         </div>

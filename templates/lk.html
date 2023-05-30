@@ -1,15 +1,131 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/bodylk.css'%}" type="text/css">
+<title>Lohotron.ru</title>
 <body>
+<header>
+<ul class="nav">
+    <li id="logo">
+        <a href="{% url 'games'%}">Lohotron.ru</a>
+    </li>
+    <li id="options">
+        <a href="#">Покупателям</a>
+        <ul class="subnav">
+            <li><a href="{% url 'aboutstore'%}">Об магазине</a></li>
+            <li><a href="{% url 'guarantees'%}">Гарантии</a></li>
+        </ul>
+    </li>
+    <li id="search">
+        <form action="" method="get">
+            <input name="search_text" id="search_text" placeholder="Поиск..." type="text">
+            <input name="search_button" id="search_button" type="button"  value="Найти">
+        </form>
+    </li>
+    <li id="personal_cabinet">
+        <a href="{% url 'login'%}">Личный кабинет</a>
+    </li>
+    <li id="basket">
+        <a href="#">Корзина</a>
+    </li>
+</ul>
+</header>
 {% if user.is_authenticated %}
+<main class="container">
 
+  <div class="left-column">
+    <div class="avatarnick">
+      <div class="avatar">
+         <div class="upload">
+<span class="fileinput"><span>Изменить аватар</span><input id="upload-avatar" type="file" name="avatar"></span>
+</div>
+      </div>
+      <div class="nick">
+         <h1>Изменить имя: </h1>
+          {{ user.username }}
+      </div>
+    </div>
+    <div class="data">
+        <div class="password">
+            <h3>Изменить пароль:</h3>
+            <div class="field">
+					<input type="field" class="form" placeholder="Ваш старый пароль">
+				</div>
+				<div class="field">
+					<input type="password" class="form" placeholder="Новый пароль">
+				</div>
+				 <div class="field">
+					<input type="password" class="form" placeholder="Подтвердите новый пароль">
+				</div>
+				<button class="button submit">
+					<span class="button__text">Сменить пароль</span>
+				</button>
+        </div>
+        <div class="email">
+            <h3> Изменить email:</h3>
+            <p> Ваш email:</p>
+            <div class="field">
+					<input type="text" class="form" placeholder="Новый email">
+				</div>
+				 <div class="field">
+					<input type="text" class="form" placeholder="Подтвердите новый email">
+				</div>
+				<button class="button submit">
+					<span class="button__text">Сменить email</span>
+				</button>
+        </div>
+    </div>
+  </div>
+
+  <div class="right-column">
+<div class="nav-top">
+
+</div>
+    <div class="product-requirements">
+    <h1>Навигация</h1>
+
+    <ul>
+<li class="nav-li"> <a href=""> Мои покупки</a> </li>
+<li class="nav-li"> <a href=""> Мои данные</a> </li>
+<li class="nav-li"> <a href=""> Выход</a> </li>
+    </ul>
+    </div>
+  </div>
+</main>
 {% else %}
-  <a href="{% url 'login' %}">Login</a>
-  <a href="{% url 'registration' %}">Registration</a>
+    <p>You are not logged in.</p>
+    <a href="{% url 'login' %}">login</a>
 {% endif %}
+{% block content %}
+{% endblock content %}
+<footer class="footer-distributed">
+
+      <div class="footer-social">
+
+        <a href="#" class="btn tg"></a>
+        <a href="#" class="btn vk"></a>
+
+
+      </div>
+
+      <div class="footer-center">
+
+        <p class="footer-links">
+
+          <a href="{% url 'agreement'%}">Соглашение</a>
+
+          <a href="{% url 'support'%}">Поддержка</a>
+
+          <a href="{% url 'refund'%}">Политика возвратов</a>
+
+        </p>
+
+        <p>Lohotron.ru &copy; 2023</p>
+      </div>
+
+    </footer>
+
 </body>
 </html>
