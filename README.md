@@ -3,7 +3,7 @@
 Клонирование репозитоория:
 
 ```bash
-$ git clone https://github.com/AlSerP/Solidity_Freelance
+$ git clone https://github.com/WhiteSkotch/key_store
 ```
 
 ## Работа с *git*
