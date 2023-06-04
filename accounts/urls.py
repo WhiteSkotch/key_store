@@ -6,6 +6,7 @@ from personal_acc.views import *
 
 urlpatterns = [
     path('games/', get_games, name='games'),
+    path('', get_games, name='games'),
     path('games/<int:pk>/', game_detail, name='game_detail'),
     path('home/', home, name='home'),
     path('aboutstore/', aboutstore, name='aboutstore'),

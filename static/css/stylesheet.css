@@ -174,7 +174,7 @@ width: 100%;
 }
 
 .footer-distributed .footer-links a:before {
-  content: ".";
+  content: "·";
   font-size: 16px;
   left: 0;
   color: #fff;

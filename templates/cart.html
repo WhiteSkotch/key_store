@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
-<link rel="stylesheet" href="{% static 'css/body_log_reg.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/bodybasket.css'%}" type="text/css">
 <title>Lohotron.ru</title>
 </head>
 <body>
@@ -36,19 +36,34 @@
 </header>
 
 <main>
-    <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-		<p>Регистрация</p>
-			<form method="post" class="login">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-					<button class="button login__submit"><span class="submit">Зарегистрироваться</span>
-				</button>
-			</form>
-		</div>
-</div>
-</div>
+
+   <div class="shopping-cart">
+      <div class="title">
+        Ваша корзина:
+      </div>
+       {% for item in cart %}
+        {% with game=item.game %}
+      <div class="item">
+        <div class="image">
+          <img src="{{ game.image.url }}">
+        </div>
+ 
+        <div class="description">
+          <span>{{ game.name }}</span>
+        </div>
+        <div class="price"> {{ game.price }} </div>
+        <div class="buttons">
+          <span class="delete-btn"><a href="{% url 'cart:cart_remove' game.id %}">Удалить</a></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="all-price">
+        <div class="allprice"> Общая сумма: 1000 </div>
+        <div class="buy">
+          <span class="buy1">Купить</span>
+        </div>
+    </div>
 </main>
 
 <footer class="footer-distributed">
