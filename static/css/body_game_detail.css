@@ -55,6 +55,9 @@ font-family: sans-serif, Arial;
   line-height: 24px;
 }
 
+.product-requirements{
+  
+}
 .product-requirements h1 {
   font-weight: 300;
   font-size: 52px;
@@ -62,6 +65,7 @@ font-family: sans-serif, Arial;
   letter-spacing: -2px;
 }
 .product-requirements p {
+  white-space: pre;
   font-weight: 300;
   font-size: 18px;
   color: white;

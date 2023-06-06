@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+    
+    {% block styles %} {% endblock %}
+
+    <title>Lohotron.ru</title>
+</head>
+<body>
+
+    {% include 'header.html' %}
+
+    {% block content %} {% endblock %}
+
+    <footer class="footer-distributed">
+
+        <div class="footer-social">
+            <a href="#" class="btn tg"></a>
+            <a href="#" class="btn vk"></a>
+        </div>
+
+        <div class="footer-center">
+            <p class="footer-links">
+                <a href="{% url 'agreement'%}">Соглашение</a>
+                <a href="{% url 'support'%}">Поддержка</a>
+                <a href="{% url 'refund'%}">Политика возвратов</a>
+            </p>
+            <p>Lohotron.ru &copy; 2023</p>
+        </div>
+    </footer>
+
+</body>
+</html>

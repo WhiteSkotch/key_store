@@ -2,4 +2,6 @@
 db.sqlite3
 .idea/
 anna_venv/
+venv/
 */__pycache__/
+*.pyc
