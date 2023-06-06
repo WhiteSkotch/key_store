@@ -17,7 +17,11 @@
             </form>
         </li>
         <li id="personal_cabinet">
+            {% if user.is_authenticated %}
+            <a href="{% url 'home'%}">Личный кабинет</a>
+            {% else %}
             <a href="{% url 'login'%}">Личный кабинет</a>
+            {% endif %}
         </li>
         <li id="basket">
             <a href="{% url 'cart:detail' %}">Корзина</a>
