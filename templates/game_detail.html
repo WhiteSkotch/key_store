@@ -49,12 +49,12 @@
     </div>
     <div class="product-requirements">
     <h1>Системные требования:</h1>
-    <p> {{game.system_requirements}} </p>
+    <p>{{game.system_requirements}}</p>
     </div>
 
     <div class="product-price">
       <span>{{ game.price }} R</span>
-      <a href="#" class="cart-btn"><form method="POST" action="{% url 'cart:cart_add' game.id %}">
+      <a href="#" class="cart-btn"><form method="POST" action="{% url 'cart:add' game.id %}">
           {% csrf_token %}
   <input type="hidden" name="game_id" value="{{ game.id }}">
   <input type="number" name="quantity" value="1" min="1">

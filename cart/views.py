@@ -15,14 +15,14 @@ def cart_add(request, game_id):
         cart.add(game=game,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    return redirect('cart:cart_detail')
+    return redirect('cart:detail')
 
 
 def cart_remove(request, game_id):
     cart = Cart(request)
     game = get_object_or_404(Game, id=game_id)
     cart.remove(game)
-    return redirect('cart:cart_detail')
+    return redirect('cart:detail')
 
 
 def cart_detail(request):

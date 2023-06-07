@@ -53,7 +53,7 @@
         </div>
         <div class="price"> {{ game.price }} </div>
         <div class="buttons">
-          <span class="delete-btn"><a href="{% url 'cart:cart_remove' game.id %}">Удалить</a></span>
+          <span class="delete-btn"><a href="{% url 'cart:remove' game.id %}">Удалить</a></span>
         </div>
       </div>
 
