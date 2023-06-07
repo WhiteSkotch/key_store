@@ -1,39 +1,11 @@
+{% extends 'base.html' %}
 {% load static %}
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
-<link rel="stylesheet" href="{% static 'css/bodybasket.css'%}" type="text/css">
-<title>Lohotron.ru</title>
-</head>
-<body>
 
-<header>
-<ul class="nav">
-    <li id="logo">
-        <a href="{% url 'games'%}">Lohotron.ru</a>
-    </li>
-    <li id="options">
-        <a href="#">Покупателям</a>
-        <ul class="subnav">
-            <li><a href="{% url 'aboutstore'%}">Об магазине</a></li>
-            <li><a href="{% url 'guarantees'%}">Гарантии</a></li>
-        </ul>
-    </li>
-    <li id="search">
-        <form action="" method="get">
-            <input name="search_text" id="search_text" placeholder="Поиск..." type="text">
-            <input name="search_button" id="search_button" type="button"  value="Найти">
-        </form>
-    </li>
-    <li id="personal_cabinet">
-        <a href="{% url 'login'%}">Личный кабинет</a>
-    </li>
-    <li id="basket">
-        <a href="#">Корзина</a>
-    </li>
-</ul>
-</header>
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/bodybasket.css'%}" type="text/css">
+{% endblock %}
+
+{% block content %}
 
 <main>
 
@@ -63,32 +35,4 @@
     </div>
 </main>
 
-<footer class="footer-distributed">
-
-      <div class="footer-social">
-
-        <a href="#" class="btn tg"></a>
-        <a href="#" class="btn vk"></a>
-
-
-      </div>
-
-      <div class="footer-center">
-
-        <p class="footer-links">
-
-          <a href="{% url 'agreement'%}">Соглашение</a>
-
-          <a href="{% url 'support'%}">Поддержка</a>
-
-          <a href="{% url 'refund'%}">Политика возвратов</a>
-
-        </p>
-
-        <p>Lohotron.ru &copy; 2023</p>
-      </div>
-
-    </footer>
-
-</body>
-</html>
+{% endblock %}
