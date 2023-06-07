@@ -23,7 +23,7 @@ width: 100%;
     list-style-type: none;
     position: relative;
 }
-.nav li a {
+.nav li a, .nav li span {
     font-size: 16px; 
     color: white;
     display: block;
@@ -35,11 +35,11 @@ width: 100%;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 .nav li a:hover {
-    background-color: #2e2e2e;
+    background-color: #7d3118;
 }
- 
+
 #logo a {
-   font-size: 16px; 
+    font-size: 16px; 
     color: white;
     display: block;
     line-height: 60px;
@@ -48,14 +48,21 @@ width: 100%;
     border-left: 1px solid #2e2e2e;
     font-family: sans-serif, Arial;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    background-color: #FF6733;
+    transition: .1s;
 }
+
+#logo:hover a {
+    background-color: #7d3118;
+}
+
 #search {
     width: 50%;
     margin: 4px;
     
 }
 #search_text {
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 20prgb(144, 56, 27)px 20px;
     width: 90%;
     padding: 15px 0 15px 20px;
     font-size: 16px;
@@ -65,7 +72,7 @@ width: 100%;
     margin-right: 0;
     color: white;
     outline: none;
-    background: #1f7f5c;
+    background: #3e3e3e;
     float: left;
     box-sizing: border-box;
     transition: all 0.15s;
@@ -83,7 +90,7 @@ width: 100%;
     color: white;
 }
 #search_text:focus {
-    background: rgb(64, 151, 119);
+    background: #3c302d;
 }
 #search_button {
     padding: 15px 0 15px 20px;
@@ -91,7 +98,7 @@ width: 100%;
     color: white;
     font-family: sans-serif, Arial;
     border: 0;
-    background: #1f7f5c;
+    background: #3e3e3e;
     width: 10%;
     float: left;
     padding: 0;
@@ -212,11 +219,14 @@ body,html
 min-height: 100vh !important;
 width: 100%;
 margin: 0;
-background-color: #232323;      
+background-color: #232323;  
+  
 }
 
 body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    z-index: -2;
+position: absolute;  
 }

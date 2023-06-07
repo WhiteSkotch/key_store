@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
+
 
 .card {
   width: 250px;
@@ -6,16 +8,20 @@
   display: flex;
   flex-direction: column; /* Размещаем элементы в колонку */
   border-radius: 4px;
-  transition: 0.2s;
+  transition: .3s;
   position: relative;
- background-color: gray;
- border-radius: 20px;
-    margin: 20px;
+  background-color: gray;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 20px;
 }
 
 /* При наведении на карточку - меняем цвет тени */
 .card:hover {
   box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+  border: rgba(255, 102, 51) 1px solid;
+  transform: scale(1.1);
 }
 
 .card__top {
@@ -43,18 +49,10 @@
   transition: 0.2s;
 }
 
-/* При наведении - увеличиваем картинку */
-.card__image:hover > img {
-  transform: scale(1.1);
-}
-
 /* Размещаем скидку на товар относительно изображения */
 .card__label {
   padding: 4px 8px;
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: #ff6633;
+  background: #FF6733;
   border-radius: 4px;
   font-weight: 400;
   font-size: 16px;
@@ -66,7 +64,9 @@
   flex-direction: column;
   flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
   padding: 10px;
-    min-height: 130px;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  margin-top: 24px;
 }
 
 
@@ -81,14 +81,13 @@
   display: block;
   margin-bottom: 10px;
   margin-top: 15px;
-  font-size: 17px;
+  font-size: 24px;
   line-height: 150%;
-  color: black;
+  color: #fff;
   text-align: left;
   min-height: 30px;
   text-decoration: none;
   overflow: hidden;
-
 }
 
 .card__title:hover {
@@ -125,4 +124,25 @@
   justify-content:flex-start;
   justify-items: center; /* Размещаем карточку по центру */
   margin: 90px auto 0;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.icon_button {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  position: relative;
+  left: 80%;
+  top: 12px;
+  transition: .3s;
+  background-color: rgba(51, 51, 51, .5);
+}
+
+.icon_button:hover {
+  background-color: #ff6633;
 }

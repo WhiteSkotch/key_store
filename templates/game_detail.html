@@ -11,7 +11,9 @@
 <header>
 <ul class="nav">
     <li id="logo">
-        <a href="{% url 'games'%}">Lohotron.ru</a>
+        <a href="{% url 'games'%}" style="height: 60px;">
+          <img src="{% static 'img\logo.png' %}" alt="Lohotron.ru logo" style="height: 50px; margin-top: 5px;">
+        </a>
     </li>
     <li id="options">
         <a href="#">Покупателям</a>
@@ -35,50 +37,30 @@
 </ul>
 </header>
 
-<main class="container">
- 
-  <div class="left-column">
-    <img src="{{ game.image.url }}" alt="{{game.name}}"/>
-  </div>
- 
-  <div class="right-column">
 
+<div style="backdrop-filter: blur(10px); position: fixed; width: 100vw; height: 100vh; background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4) 10%, rgba(0, 0, 0, 1)), url('{{ game.image.url }}'); background-size: cover; filter: blur(8px); z-index: -1;"></div>
+<!-- background-image: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 87%, rgba(0, 0, 0, 0) 100%) -->
+<main class="container">
+  <div class="left-column">
     <div class="product-description">
-      <h1>{{ game.name }}</h1>
+      <h2>{{ game.name }}</h2>
       <p>{{ game.description }}</p>
     </div>
     <div class="product-requirements">
-    <h1>Системные требования:</h1>
+    <h2>Системные требования:</h2>
     <p>{{game.system_requirements}}</p>
     </div>
+  </div>
 
-    <div class="product-price">
-      <span>{{ game.price }} R</span>
-      <a href="#" class="cart-btn"><form method="POST" action="{% url 'cart:add' game.id %}">
-          {% csrf_token %}
-  <input type="hidden" name="game_id" value="{{ game.id }}">
-  <input type="number" name="quantity" value="1" min="1">
-  <button type="submit">Добавить в корзину</button></form></a>
-    </div>
+  <div class="right-column">
+    <img src="{{ game.image.url }}" alt="{{game.name}}" style="max-width: 600px;"/>
+
+      <div class="product-price">
+        <span>{{ game.price }} ₽</span>
+        <a href="{% url 'cart:add' game.id %}">Добавить в корзину</a>
+      </div>
   </div>
 </main>
- 
-  
-
-<footer class="footer-distributed">
-      <div class="footer-social">
-        <a href="#" class="btn tg"></a>
-        <a href="#" class="btn vk"></a>
-      </div>
-      <div class="footer-center">
-        <p class="footer-links">
-          <a href="{% url 'agreement'%}">Соглашение</a>
-          <a href="{% url 'support'%}">Поддержка</a>
-          <a href="{% url 'refund'%}">Политика возвратов</a>
-        </p>
-        <p>Lohotron.ru &copy; 2023</p>
-      </div>
-    </footer>
   
 </body>
 </html>

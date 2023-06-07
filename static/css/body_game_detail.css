@@ -1,12 +1,22 @@
 
+h2 {
+  font-weight: 300;
+  font-size: 52px;
+  color: #B76B50;
+  letter-spacing: -2px;
+  border-bottom: #fff 1px solid;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
 .container {
   min-width: 1200px;
   min-height: 600px;
-  margin: 70px;
+  margin: 15vh 70px 70px 70px;
   padding: 10px;
   display: flex;
-background-color: #232323;
-font-family: sans-serif, Arial;
+  /* background-color: #232323; */
+  font-family: sans-serif, Arial;
 }
 
 .left-column {
@@ -32,8 +42,7 @@ font-family: sans-serif, Arial;
  
 /* Product Description */
 .product-description {
-  border-bottom: 1px solid #E1E8EE;
-  margin-bottom: 20px;
+  margin-bottom: 48px;
 }
 .product-description span {
   font-size: 12px;
@@ -42,12 +51,7 @@ font-family: sans-serif, Arial;
   text-transform: uppercase;
   text-decoration: none;
 }
-.product-description h1 {
-  font-weight: 300;
-  font-size: 52px;
-  color: gold;
-  letter-spacing: -2px;
-}
+
 .product-description p {
   font-size: 18px;
   font-weight: 300;
@@ -55,15 +59,6 @@ font-family: sans-serif, Arial;
   line-height: 24px;
 }
 
-.product-requirements{
-  
-}
-.product-requirements h1 {
-  font-weight: 300;
-  font-size: 52px;
-  color: gold;
-  letter-spacing: -2px;
-}
 .product-requirements p {
   white-space: pre;
   font-weight: 300;
@@ -71,7 +66,6 @@ font-family: sans-serif, Arial;
   color: white;
 }
  .product-requirements {
-  border-bottom: 1px solid #E1E8EE;
   margin-bottom: 20px;
 }
 .product-requirements ul {
@@ -82,15 +76,30 @@ font-family: sans-serif, Arial;
 .product-price {
   display: flex;
   align-items: center;
+  max-width: 600px;
+  justify-content: right;
+  margin-top: 8px;
 }
  
 .product-price span {
   font-size: 26px;
   font-weight: 300;
-  color: gold;
+  color: white;
   margin-right: 20px;
 }
- 
+
+.product-price a {
+  color: white;
+  text-decoration: none;
+  padding: 16px;
+  background-color: #FF6733;
+}
+
+.product-price a:visited {
+  color: white;
+  text-decoration: none;
+}
+
 .cart-btn {
   display: inline-block;
   background-color: #7DC855;
