@@ -1,10 +1,16 @@
+{% load static %}
+
 <header>
     <ul class="nav">
         <li id="logo">
-            <a href="{% url 'games'%}">Lohotron.ru</a>
+            <li id="logo">
+                <a href="{% url 'games'%}" style="height: 60px;">
+                  <img src="{% static 'img\logo.png' %}" alt="Lohotron.ru logo" style="height: 50px; margin-top: 5px;">
+                </a>
+            </li>
         </li>
         <li id="options">
-            <a href="#">Покупателям</a>
+            <span>Покупателям</span>
             <ul class="subnav">
                 <li><a href="{% url 'aboutstore'%}">Об магазине</a></li>
                 <li><a href="{% url 'guarantees'%}">Гарантии</a></li>
