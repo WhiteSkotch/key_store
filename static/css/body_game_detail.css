@@ -46,7 +46,7 @@ h2 {
 }
 .product-description span {
   font-size: 12px;
-  color: #358ED7;
+  color: #FF6733;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
@@ -102,7 +102,7 @@ h2 {
 
 .cart-btn {
   display: inline-block;
-  background-color: #7DC855;
+  background-color: #FF6733;
   border-radius: 6px;
   font-size: 16px;
   color: #FFFFFF;
@@ -111,5 +111,20 @@ h2 {
   transition: all .5s;
 }
 .cart-btn:hover {
-  background-color: #64af3d;
+  background-color: #FF6733;
+  color: white;
+  text-decoration: none;
+}
+
+button{
+  color: white;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all .5s;
+  background-color: #FF6733;
+  font-size: 26px;
+  font-weight: 300;
+  color: white;
+  margin-right: 20px;
+  border-radius: 6px;
 }

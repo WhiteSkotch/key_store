@@ -25,7 +25,11 @@
 
       <div class="product-price">
         <span>{{ game.price }} ₽</span>
-        <a href="{% url 'cart:add' game.id %}">Добавить в корзину</a>
+        <form method="POST" action="{% url 'cart:add' game.id %}"><button class="add_submit">Добавить в корзину</button>
+          {% csrf_token %}
+  <input type="hidden" name="game_id" value="{{ game.id }}">
+  <input type="hidden" name="quantity" value="1" min="1"></form>
+<!--        <a href="{% url 'cart:add' game.id %}">Добавить в корзину</a>-->
       </div>
   </div>
 </main>

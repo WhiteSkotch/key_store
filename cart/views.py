@@ -4,7 +4,6 @@ from accounts.models import Game
 from .cart import Cart
 from .forms import CartAddProductForm
 
-
 @require_POST
 def cart_add(request, game_id):
     cart = Cart(request)
@@ -16,6 +15,8 @@ def cart_add(request, game_id):
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
     return redirect('cart:detail')
+
+
 
 
 def cart_remove(request, game_id):
