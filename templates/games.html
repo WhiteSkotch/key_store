@@ -13,8 +13,8 @@
         <!-- Верхняя часть -->
         <div class="card__top">
             <!-- Кнопка добавления в корзину -->
-            <a href="#"> 
-                <div class="icon_button">
+            <a href="{% url 'cart:add_1' game.id %}">
+                <div class="icon_button" >
                     <img class="icon" src="{% static 'img/svg/cart-plus.svg'%}" alt="Cart icon">
                 </div>
             </a>

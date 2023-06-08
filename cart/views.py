@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
-from accounts.models import Game
+from accounts.models import Game, Key
 from .cart import Cart
 from .forms import CartAddProductForm
 
@@ -16,7 +16,11 @@ def cart_add(request, game_id):
                  update_quantity=cd['update'])
     return redirect('cart:detail')
 
-
+def cart_add_1(request, game_id):
+    cart = Cart(request)
+    game = get_object_or_404(Game, id=game_id)
+    cart.add(game=game, quantity=1, update_quantity=False)
+    return redirect('cart:detail')
 
 
 def cart_remove(request, game_id):
@@ -32,6 +36,13 @@ def cart_detail(request):
     print(cart)
     print(*[item for item in cart])
     for item in cart:
-        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'],
-                                                                   'update': True})
+        item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
+
+
+ # def cart_buy(request):
+ #     cart = Cart(request)
+ #     for  game_id, key_ids in cart.items():
+ #         games = Game.objects.filter(id=game_id)
+ #         keys = Key.objects.filter(id__in=game_id)
+ #     return render(request, 'cart/detail.html', {'cart': cart})

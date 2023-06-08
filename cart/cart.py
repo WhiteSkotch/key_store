@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from accounts.models import Game
+from accounts.models import Game, Key
 from django.db import models
 
 class Cart(object):
@@ -23,18 +23,20 @@ class Cart(object):
         game_ids = self.cart.keys()
         # получаем товары и добавляем их в корзину
         games = Game.objects.filter(id__in=game_ids)
-
+        keys1 = Key.objects.filter(id__in=game_ids, is_sold=False)
         cart = self.cart.copy()
         for game in games:
             cart[str(game.id)]['game'] = game
+        for key in keys1:
+            cart[str(game.id)]['key'] = key
 
         #for item in cart.values():
         for game_id, item in cart.items():
             item['price'] = Decimal(item['price'])
             item['total_price'] = item['price'] * item['quantity']
-            item["game_id"] = game_id
-            item["name"] = cart[game_id]['game'].name
-            item["image"] = cart[game_id]['game'].image.url
+            item['game_id'] = game_id
+            item['name'] = cart[game_id]['game'].name
+            item['image'] = cart[game_id]['game'].image.url
             yield item
     
     def __len__(self):

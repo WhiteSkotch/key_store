@@ -12,6 +12,7 @@ class Game(models.Model):
 class Key(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     key = models.CharField(max_length=50, unique=True)
+    is_sold = models.BooleanField(default=False)
 
 
 class Order(models.Model):
