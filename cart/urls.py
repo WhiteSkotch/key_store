@@ -14,4 +14,8 @@ urlpatterns = [
     path('remove/<int:game_id>/',
          views.cart_remove,
          name='remove'),
+    path('buy',
+         views.cart_buy,
+         name='buy'),
+
 ]

@@ -30,8 +30,9 @@
     <div class="all-price">
         <div class="allprice">{{ cart.get_total_price }} R</div>
         <div class="buy">
-          <span class="buy1">Купить</span>
+            <a href="{% url 'cart:buy'%}"><span class="buy1">Купить</span></a>
         </div>
+
     </div>
 </main>
 

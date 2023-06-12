@@ -37,22 +37,18 @@
 					<span class="button__text">Сменить пароль</span>
 				</button>
         </div>
-        <div class="email">
-            <h3> Изменить email:</h3>
-            <p> Ваш email:</p>
-            <div class="field">
-					<input type="text" class="form" placeholder="Новый email">
-				</div>
-				 <div class="field">
-					<input type="text" class="form" placeholder="Подтвердите новый email">
-				</div>
-				<button class="button submit">
-					<span class="button__text">Сменить email</span>
-				</button>
-        </div>
-    </div>
   </div>
-
+    <div>
+            <form method="post" action="{% url 'add_money' %}">
+                {% csrf_token %}
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" name="amount">
+                <button type="submit">Add Money</button>
+            </form>
+        </div>
+      <div><p>Ваш баланс: {{ money }}</p></div>
+<!--      <div><p>Ваш баланс: <"{% url 'add_money' %}"></p></div>-->
+    </div>
   <div class="right-column">
 <div class="nav-top">
 
@@ -63,7 +59,7 @@
     <ul>
 <li class="nav-li"> <a href=""> Мои покупки</a> </li>
 <li class="nav-li"> <a href=""> Мои данные</a> </li>
-<li class="nav-li"> <a href=""> Выход</a> </li>
+<li class="nav-li"> <a href="{% url 'logout' %}"> Выход</a> </li>
     </ul>
     </div>
   </div>
