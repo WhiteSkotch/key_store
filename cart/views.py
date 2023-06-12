@@ -35,14 +35,16 @@ def cart_remove(request, game_id):
 def cart_buy(request):
     if request.user.is_authenticated:
         cart = Cart(request)
-        money = Money.objects.filter(user=request.user)
+        money = Money.objects.filter(user=request.user).first()
+        if not money:
+            money = Money.objects.create(user=request.user, money=0)
         game_ids = cart.cart.keys()
         games = Game.objects.filter(id__in=game_ids)
         for item in cart:
             tran = Transaction()
+            tran.user_id = request.user.id
             tran.game_id = item['game_id']
             keys = Key.objects.filter(game=tran.game_id, is_sold=False)
-            # tran.key = item['key']
             if len(keys) < item['quantity']:
                 messages.error(request, 'Not enough keys available for game {}'.format(tran.game_id))
                 return redirect('cart:detail')
@@ -53,11 +55,6 @@ def cart_buy(request):
                 keys[i].save()
                 money.money -= item['price']
                 money.save()
-                # item['key'] = keys[i]
-                # Key[keys[i]].is_sold = True
-                # print(money[0].money)
-                # money[0].money-= item['price']
-        # money.save()
         cart.clear()
         messages.success(request, 'Thank you for your purchase!')
         return render(request, 'cart/detail.html', {'cart': cart})
