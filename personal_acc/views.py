@@ -25,7 +25,10 @@ def create_money(sender, instance, created, **kwargs):
 
 
 def home(request):
-    return render(request, 'lk.html')
+    user = request.user
+    money = Money.objects.get(user=user)
+    context = {'money': money.money}
+    return render(request, 'lk.html', context)
 
 
 def logout_view(request):
@@ -34,10 +37,7 @@ def logout_view(request):
 
 
 def get_money(request):
-    user = request.user
-    money = Money.objects.get(user=user)
-    context = {'money': money.money}
-    return render(request, 'lk.html', context)
+    return redirect(reverse_lazy('home'))
 
 
 def add_money_view(request):
@@ -50,10 +50,10 @@ def add_money_view(request):
             amount = form.cleaned_data['amount']
             add_money_to_user(user.id, amount)
             balance += amount
-            return render(request, 'success.html', {'balance': balance})
+            return render(request, 'lk.html', {'money': balance})
         else:
             form = AddMoneyForm()
-        return render(request, 'lk.html', {'form': form, 'balance': balance})
+        return render(request, 'lk.html', {'form': form, 'money': balance})
 
 
 def add_money_to_user(user, amount):
