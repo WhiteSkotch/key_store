@@ -24,9 +24,9 @@
         </li>
         <li id="personal_cabinet">
             {% if user.is_authenticated %}
-            <a href="{% url 'home'%}">Личный кабинет</a>
+            <a href="{% url 'home'%}">{{ user.balance.first.money }} ₽ | {{ user.username }}</a>
             {% else %}
-            <a href="{% url 'login'%}">Личный кабинет</a>
+            <a href="{% url 'login'%}">Войти</a>
             {% endif %}
         </li>
         <li id="basket">

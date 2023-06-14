@@ -11,21 +11,16 @@
 
   <div class="left-column">
     <div class="avatarnick">
-      <div class="avatar">
-         <div class="upload">
-<span class="fileinput"><span>Изменить аватар</span><input id="upload-avatar" type="file" name="avatar"></span>
-</div>
-      </div>
       <div class="nick">
-         <h1>Изменить имя: </h1>
-          {{ user.username }}
+         <h2>{{ user.username }}</h2>
+         <span>{{ user.balance.first.money }}</span>
       </div>
     </div>
     <div class="data">
-        <div class="password">
-            <h3>Изменить пароль:</h3>
-            <div class="field">
-					<input type="field" class="form" placeholder="Ваш старый пароль">
+      <div class="password">
+          <h3>Изменить пароль:</h3>
+          <div class="field">
+        <input type="field" class="form" placeholder="Ваш старый пароль">
 				</div>
 				<div class="field">
 					<input type="password" class="form" placeholder="Новый пароль">
@@ -36,25 +31,25 @@
 				<button class="button submit">
 					<span class="button__text">Сменить пароль</span>
 				</button>
-        </div>
-  </div>
-    <div>
-            <form method="post" action="{% url 'add_money' %}">
-                {% csrf_token %}
-                <label for="amount">Amount:</label>
-                <input type="number" id="amount" name="amount">
-                <button type="submit">Add Money</button>
-            </form>
-        </div>
-      <div><p>Ваш баланс: {{ money }}</p></div>
-<!--      <div><p>Ваш баланс: <"{% url 'add_money' %}"></p></div>-->
+      </div>
     </div>
+    <div>
+      <form method="post" action="{% url 'add_money' %}">
+          {% csrf_token %}
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount">
+          <button type="submit">Add Money</button>
+      </form>
+    </div>
+    <div><p>Ваш баланс: {{ money }}</p></div>
+<!--      <div><p>Ваш баланс: <"{% url 'add_money' %}"></p></div>-->
+  </div>
   <div class="right-column">
 <div class="nav-top">
 
 </div>
     <div class="product-requirements">
-    <h1>Навигация</h1>
+    <h3>Навигация</h3>
 
     <ul>
 <li class="nav-li"> <a href=""> Мои покупки</a> </li>

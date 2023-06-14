@@ -28,6 +28,8 @@ def home(request):
     user = request.user
     money = Money.objects.get(user=user)
     context = {'money': money.money}
+    print(money.money)
+    print(user.balance.all()[0].money)
     return render(request, 'lk.html', context)
 
 
