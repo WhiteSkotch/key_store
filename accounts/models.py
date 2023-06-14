@@ -17,7 +17,7 @@ class Key(models.Model):
 
 class Money(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    money = models.DecimalField(max_digits=15, decimal_places=2)
+    money = models.DecimalField(max_digits=15, decimal_places=2, default=0)
 
 
 class Transaction(models.Model):

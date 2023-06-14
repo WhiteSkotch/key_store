@@ -57,7 +57,7 @@ def add_money_view(request):
 
 
 def add_money_to_user(user, amount):
-    money = Money.objects.get(user=user)
+    money, created = Money.objects.get_or_create(user=user)
     amount_decimal = Decimal(amount)
     money.money += amount_decimal
     money.save()
