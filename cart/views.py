@@ -27,21 +27,12 @@ def cart_add_1(request, game_id):
     return redirect('cart:detail')
 
 
-# def cart_remove_1(request, game_id):
-#     cart = Cart(request)
-#     game = get_object_or_404(Game, id=game_id)
-#
-#     cart.add(game=game, quantity=-1, update_quantity=False)
-#     for item in cart:
-#         if item['quantity']<=0:
-#             cart_remove(item['game_id'])
-#     return redirect('cart:detail')
-
 def cart_remove_1(request, game_id):
     cart = Cart(request)
     game = get_object_or_404(Game, id=game_id)
     cart.remove_one(game)
     return redirect('cart:detail')
+
 
 def cart_remove(request, game_id):
     cart = Cart(request)
