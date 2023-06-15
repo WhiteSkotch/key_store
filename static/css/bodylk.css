@@ -199,5 +199,64 @@ font-family: sans-serif, Arial;
     color: white;
 }
 
+.quantity {
+ display: block;
+  min-width: 100px;
+ margin-bottom: auto;
+ margin-top: auto;
+ padding-right:20px;
+ padding-top: 10px;
+}
 
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 250px;
+  display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.image {
+  display: block;
+    padding-top: 10px;
+  width: 115px;
+  height: 100px;
+    padding-right: 20px;
+}
 
+.transactions {
+  width: 750px;
+  min-height: 250px;
+  margin: 80px auto 0px;
+  background: white;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #d9d9d9;
+  color: black;
+
+}
+.transaction {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+.transaction:nth-child(3) {
+  border-top:  1px solid #E1E8EE;
+  border-bottom:  1px solid #E1E8EE;
+}
+.image > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
+}
+.title {
+  height: 30px;
+  border-bottom: 0 0 1px solid #E1E8EE;
+  padding: 20px 30px;
+  font-size: 36px;
+  font-weight: 400;
+  display: inline-block;
+}

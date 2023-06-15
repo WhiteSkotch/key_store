@@ -15,13 +15,11 @@
          <h2>{{ user.username }}</h2>
          <span>{{ user.balance.first.money }}</span>
       </div>
-    </div>
+    </div><div class="title"> Ваши ключи:</div>
     <div class="transactions">
-        <div class="title">
-        Ваши покупки:
-      </div>
+
        {% for transaction in transactions %}
-      <div class="item">
+      <div class="transaction">
         <div class="image">
             <img src="{{ transaction.game.image.url }}">
         </div>
