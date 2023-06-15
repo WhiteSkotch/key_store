@@ -6,6 +6,8 @@ from .forms import CartAddProductForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from test_project.settings import LOGIN_REDIRECT_URL
 
 @require_POST
 def cart_add(request, game_id):
@@ -47,27 +49,33 @@ def cart_buy(request):
         money = Money.objects.filter(user=request.user).first()
         if not money:
             money = Money.objects.create(user=request.user, money=0)
-        game_ids = cart.cart.keys()
-        games = Game.objects.filter(id__in=game_ids)
-        for item in cart:
-            tran = Transaction()
-            tran.user_id = request.user.id
-            tran.game_id = item['game_id']
-            keys = Key.objects.filter(game=tran.game_id, is_sold=False)
-            if len(keys) < item['quantity']:
-                messages.error(request, 'Not enough keys available for game {}'.format(tran.game_id))
-                return redirect('cart:detail')
-            for i in range(item['quantity']):
-                tran.key = keys[i]
-                tran.save()
-                keys[i].is_sold = True
-                keys[i].save()
-                money.money -= item['price']
-                money.save()
-        cart.clear()
-        messages.success(request, 'Thank you for your purchase!')
-        return redirect(reverse_lazy('home'))
-        # return render(request, 'cart/detail.html', {'cart': cart})
+        if money.money >= cart.get_total_price():
+            game_ids = cart.cart.keys()
+            games = Game.objects.filter(id__in=game_ids)
+            for item in cart:
+                game_id = item['game_id']
+                keys = Key.objects.filter(game=game_id, is_sold=False)
+                if len(keys) < item['quantity']:
+                    messages.error(request, 'Not enough keys available for game {}'.format(game_id))
+                    return redirect('cart:detail')
+                for i in range(item['quantity']):
+                    tran = Transaction()
+                    tran.user_id = request.user.id
+                    tran.game_id = game_id
+                    tran.key = keys[i]
+                    tran.save()
+                    keys[i].is_sold = True
+                    keys[i].save()
+                    money.money -= item['price']
+                    money.save()
+            cart.clear()
+            messages.success(request, 'Thank you for your purchase!')
+            return redirect(reverse_lazy('home'))
+        else:
+            messages.success(request, 'Ты - нищеброд!')
+            return redirect(reverse_lazy('cart:detail'))
+    else:
+        return redirect(reverse_lazy('login'))
 
 
 def cart_detail(request):

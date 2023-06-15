@@ -40,6 +40,7 @@ def create_money(sender, instance, created, **kwargs):
         Money.objects.create(user=instance, money=0)
 
 
+@login_required
 def home(request):
     user = request.user
     money = Money.objects.get(user=user)
@@ -50,15 +51,18 @@ def home(request):
     return render(request, 'lk.html', context)
 
 
+@login_required
 def logout_view(request):
     logout(request)
     return redirect('login')
 
 
+@login_required
 def get_money(request):
     return redirect(reverse_lazy('home'))
 
 
+@login_required
 def add_money_view(request):
     user = request.user
     money, created = Money.objects.get_or_create(user=user)
@@ -75,6 +79,7 @@ def add_money_view(request):
         return render(request, 'lk.html', {'form': form, 'money': balance})
 
 
+@login_required
 def add_money_to_user(user, amount):
     money, created = Money.objects.get_or_create(user=user)
     amount_decimal = Decimal(amount)
@@ -83,7 +88,7 @@ def add_money_to_user(user, amount):
     money.save()
 
 
-
+@login_required
 def add_money(request):
     if request.method == 'POST':
         amount = request.POST.get('amount')
@@ -99,6 +104,7 @@ def add_money(request):
 # def completed_transactions(request):
 #     transactions = Transaction.objects.filter(user=request.user)
 #     return render(request, 'home', {'transactions': transactions})
+
 
 def get_trans(request):
     transactions = Transaction.objects.filter(user=request.user)

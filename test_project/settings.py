@@ -81,6 +81,7 @@ DATABASES = {
     }
 }
 
+LOGIN_URL = '/personal_acc/login/'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

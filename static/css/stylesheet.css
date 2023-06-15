@@ -62,8 +62,8 @@ width: 100%;
     
 }
 #search_text {
-    border-radius: 20prgb(144, 56, 27)px 20px;
-    width: 90%;
+    /*border-radius: 20prgb(144, 56, 27)px 20px;*/
+    width: 110%;
     padding: 15px 0 15px 20px;
     font-size: 16px;
     font-family: sans-serif, Arial;
@@ -76,6 +76,7 @@ width: 100%;
     float: left;
     box-sizing: border-box;
     transition: all 0.15s;
+    border-radius: 0px 20px 20px 0px;
 }
 ::-webkit-input-placeholder { /* WebKit браузеры */
     color: white;
@@ -234,7 +235,7 @@ position: absolute;
 #search_result {
     position: absolute;
     top: 53px;
-    width: 90%;
+    width: 108%;
 }
 #search_result li {
     list-style-type: none;

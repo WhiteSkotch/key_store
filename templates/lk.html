@@ -33,11 +33,10 @@
         </div>
     </div>{% endfor %}
     </div>
-    <div class="data">
-
-      <div class="password">
-          {% include 'change_password.html' %}
-          {% block c %}{% endblock %}
+<div class="data">
+<!--      <div class="password">-->
+<!--          {% include 'change_password.html' %}-->
+<!--          {% block c %}{% endblock %}-->
 <!--          <h3>Изменить пароль:</h3>-->
 <!--          <form method="post">-->
 <!--    {% csrf_token %}-->
@@ -58,8 +57,8 @@
 <!--				<button class="button submit">-->
 <!--					<span class="button__text">Сменить пароль</span>-->
 <!--				</button>-->
-      </div>
-    </div>
+</div>
+
     <div>
       <form method="post" action="{% url 'add_money' %}">
           {% csrf_token %}
