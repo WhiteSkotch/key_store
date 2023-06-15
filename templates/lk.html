@@ -18,7 +18,7 @@
     </div>
     <div class="transactions">
         <div class="title">
-        Ваша корзина:
+        Ваши покупки:
       </div>
        {% for transaction in transactions %}
       <div class="item">
@@ -34,20 +34,30 @@
     </div>{% endfor %}
     </div>
     <div class="data">
+
       <div class="password">
-          <h3>Изменить пароль:</h3>
-          <div class="field">
-        <input type="field" class="form" placeholder="Ваш старый пароль">
-				</div>
-				<div class="field">
-					<input type="password" class="form" placeholder="Новый пароль">
-				</div>
-				 <div class="field">
-					<input type="password" class="form" placeholder="Подтвердите новый пароль">
-				</div>
-				<button class="button submit">
-					<span class="button__text">Сменить пароль</span>
-				</button>
+          {% include 'change_password.html' %}
+          {% block c %}{% endblock %}
+<!--          <h3>Изменить пароль:</h3>-->
+<!--          <form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button class="button submit">-->
+<!--					<span class="button__text">Сменить пароль</span>-->
+<!--				</button>-->
+<!--    </form>-->
+<!--          <div class="field">-->
+<!--        <input type="field" class="form" placeholder="Ваш старый пароль">-->
+<!--				</div>-->
+<!--				<div class="field">-->
+<!--					<input type="password" class="form" placeholder="Новый пароль">-->
+<!--				</div>-->
+<!--				 <div class="field">-->
+<!--					<input type="password" class="form" placeholder="Подтвердите новый пароль">-->
+<!--				</div>-->
+<!--				<button class="button submit">-->
+<!--					<span class="button__text">Сменить пароль</span>-->
+<!--				</button>-->
       </div>
     </div>
     <div>

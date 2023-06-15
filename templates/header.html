@@ -17,11 +17,12 @@
             </ul>
         </li>
         <li id="search">
-            <form action="" method="get">
-                <input name="search_text" id="search_text" placeholder="Поиск..." type="text">
-                <input name="search_button" id="search_button" type="button" value="Найти">
-            </form>
-        </li>
+            <input name="search_text" id="search_text" placeholder="Поиск..." type="text">
+            <input name="search_button" id="search_button" type="button"  value="Найти">
+            <ul id="search_result">
+
+            </ul>
+    </li>
         <li id="personal_cabinet">
             {% if user.is_authenticated %}
             <a href="{% url 'home'%}">{{ user.balance.first.money }} ₽ | {{ user.username }}</a>
@@ -34,3 +35,45 @@
         </li>
     </ul>
 </header>
+<script>
+    const searchtext = document.getElementById('search_text');
+    const searchresult = document.querySelector("#search_result");
+    searchtext.addEventListener('input', (event) => {
+        event.preventDefault();
+        searchresult.style.display = "block";
+        document.querySelector("#search_result").innerHTML = "";
+        let value=document.querySelector('[name="search_text"]').value.trim().toLowerCase();
+        document.querySelectorAll('.card').forEach(item => {
+            let title=item.querySelector('.card__title');
+            if (title && title.textContent.trim().toLowerCase().includes(value)) {
+                let name=title.textContent.trim();
+                let ref=title.href;
+                let cont=document.querySelector("#search_result");
+                let li=document.createElement("li");
+                let a=document.createElement("a");
+                cont.append(li);
+                a.href=ref;
+                a.textContent=name;
+                li.append(a);
+            }
+        }
+  );
+        if (document.querySelector("#search_result").innerHTML === "")
+        {
+             let cont=document.querySelector("#search_result");
+             let li=document.createElement("li");
+             let div=document.createElement("div");
+             div.classList.add('text');
+             div.textContent="По вашему запросу ничего не найдено:(";
+             li.append(div);
+             cont.append(li);
+
+        }
+   }
+);
+   document.onclick = function (e) {
+    if (e.target.id != "search_text") {
+        searchresult.style.display = "none";
+    };
+}
+</script>

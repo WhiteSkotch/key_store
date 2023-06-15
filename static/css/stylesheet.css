@@ -230,3 +230,30 @@ body {
     z-index: -2;
 position: absolute;  
 }
+
+#search_result {
+    position: absolute;
+    top: 53px;
+    width: 90%;
+}
+#search_result li {
+    list-style-type: none;
+    position: relative;
+    float: none;
+    background-color: #232323;
+    overflow: hidden;
+}
+.text {
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    line-height: 60px;
+    text-decoration: none;
+    border-left: 1px solid #2e2e2e;
+    font-family: sans-serif, Arial;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+    padding: 0 0 0 26px;
+}
+#search_result li a {
+    border-left: 1px solid #2e2e2e;
+}
