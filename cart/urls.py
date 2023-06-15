@@ -12,7 +12,7 @@ urlpatterns = [
          views.cart_add_1,
          name='add_1'),
     path('remove/<int:game_id>/',
-         views.cart_remove,
+         views.cart_remove_1,
          name='remove'),
     path('buy',
          views.cart_buy,

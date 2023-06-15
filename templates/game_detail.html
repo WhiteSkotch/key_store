@@ -22,7 +22,6 @@
 
   <div class="right-column">
     <img src="{{ game.image.url }}" alt="{{game.name}}" style="max-width: 600px;"/>
-
       <div class="product-price">
         <span>{{ game.price }} ₽</span>
         <a href="{% url 'cart:add_1' game.id %}">Добавить в корзину</a>

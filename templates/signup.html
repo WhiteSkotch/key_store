@@ -21,6 +21,19 @@
 		</div>
 </div>
 </div>
+	<script>
+	const applicantForm = document.querySelector('.login');
+	applicantForm.addEventListener('button', (event)=>{
+      event.preventDefault();
+      console.log('hui');
+      let pass1=applicantForm.querySelector("[name='password1']");
+      let pass2=applicantForm.querySelector("[name='password2']");
+      if (pass1!=pass2)
+          {
+              event.preventDefault();
+          }
+})
+	</script>
 </main>
 
 {% endblock %}

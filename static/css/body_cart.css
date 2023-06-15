@@ -20,13 +20,13 @@
   font-weight: 400;
   display: inline-block;
 }
- 
+
 .item {
   padding: 20px 30px;
   height: 120px;
   display: flex;
 }
- 
+
 .item:nth-child(3) {
   border-top:  1px solid #E1E8EE;
   border-bottom:  1px solid #E1E8EE;
@@ -45,7 +45,7 @@ Cursor: pointer;
 font-size: 26px;
  float: right;
 }
- 
+
 .image {
   display: block;
     padding-top: 10px;
@@ -60,25 +60,25 @@ font-size: 26px;
   object-fit: contain; /* Встраиваем картинку в контейнер card__image */
   transition: 0.2s;
 }
- 
+
 .description {
   padding-top: 10px;
   margin-right: 60px;
-  width: 300px;
+  width: 250px;
   display: block;
     margin-top: auto;
     margin-bottom: auto;
 }
- 
-.description span {
+
+.item span {
   font-size: 26px;
   font-weight: 400;
 
 }
- 
+
 .price {
   display: block;
-  width: 83px;
+  width: 110px;
   padding-top: 10px;
   font-size: 26px;
   font-weight: 300;
@@ -87,6 +87,33 @@ font-size: 26px;
     float: right;
 }
 
+.quantity {
+ display: block;
+  min-width: 100px;
+ margin-bottom: auto;
+ margin-top: auto;
+ padding-right:20px;
+ padding-top: 10px;
+}
+.quantity input {
+  border: none;
+  text-align: center;
+  width: 32px;
+  color: #43484D;
+  font-weight: 300;
+  font-size: 25px;
+  vertical-align: middle;
+}
+
+button[class*=btn] {
+  width: 40px;
+  height: 43px;
+  background-color: #E1E8EE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
 
 
 .all-price
@@ -105,7 +132,7 @@ font-size: 26px;
 .buy{
   padding-top: 10px;
   width: 90px;
-  margin: auto 20px auto 20px;     
+  margin: auto 20px auto 20px;
 }
 
 .buy1 {

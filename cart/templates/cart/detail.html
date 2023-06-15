@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/bodybasket.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/body_cart.css'%}" type="text/css">
 {% endblock %}
 
 {% block content %}
@@ -22,13 +22,17 @@
         <div class="description">
           <span>{{ item.name }}</span>
         </div>
-        <div class="price"> {{ item.price }} </div>
-        <div class="price"> {{ item.quantity }} </div>
-      </div>
-      {% endfor %}
-    </div>
+        <div class="quantity">
+            <a href="{% url 'cart:add_1' item.game_id %}"><button class="plus-btn" type="button" name="button">+</button></a>
+        <span> {{ item.quantity }} </span>
+        <a href="{% url 'cart:remove' item.game_id %}"><button class="minus-btn" type="button" name="button">-</button></a>
+        </div>
+          <div class="price"> {{ item.price }} ₽</div>
+
+
+    </div>{% endfor %}
     <div class="all-price">
-        <div class="allprice">{{ cart.get_total_price }} R</div>
+        <div class="allprice">Общая сумма: {{ cart.get_total_price }} ₽</div>
         <div class="buy">
             <a href="{% url 'cart:buy'%}"><span class="buy1">Купить</span></a>
         </div>

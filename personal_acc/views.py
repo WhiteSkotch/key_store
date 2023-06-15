@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
-from accounts.models import Money
+from accounts.models import Money, Transaction
 from .forms import AddMoneyForm
 from decimal import Decimal
 from django.db.models.signals import post_save
@@ -27,7 +27,8 @@ def create_money(sender, instance, created, **kwargs):
 def home(request):
     user = request.user
     money = Money.objects.get(user=user)
-    context = {'money': money.money}
+    transactions = Transaction.objects.filter(user=user)
+    context = {'money': money.money, 'transactions': transactions}
     print(money.money)
     print(user.balance.all()[0].money)
     return render(request, 'lk.html', context)
@@ -61,8 +62,10 @@ def add_money_view(request):
 def add_money_to_user(user, amount):
     money, created = Money.objects.get_or_create(user=user)
     amount_decimal = Decimal(amount)
-    money.money += amount_decimal
+    if (amount_decimal>=0):
+        money.money += amount_decimal
     money.save()
+
 
 
 def add_money(request):
@@ -75,3 +78,14 @@ def add_money(request):
         return render(request, 'lk.html', context)
     else:
         return render(request, 'lk.html')
+
+
+# def completed_transactions(request):
+#     transactions = Transaction.objects.filter(user=request.user)
+#     return render(request, 'home', {'transactions': transactions})
+
+def get_trans(request):
+    transactions = Transaction.objects.filter(user=request.user)
+    context1 = {'transactions': transactions}
+    redirect(reverse_lazy('home'), context1)
+    # return render(request, 'home', context)

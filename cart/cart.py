@@ -73,6 +73,15 @@ class Cart(object):
             del self.cart[game_id]
             self.save()
 
+    def remove_one(self, game):  # добавляем метод remove_one, который удаляет только один элемент
+        game_id = str(game.id)
+        if game_id in self.cart:
+            if self.cart[game_id]['quantity'] > 1:
+                self.cart[game_id]['quantity'] -= 1
+            else:
+                del self.cart[game_id]
+            self.save()
+
     def get_total_price(self):
         # получаем общую стоимость
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())

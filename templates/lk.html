@@ -16,6 +16,23 @@
          <span>{{ user.balance.first.money }}</span>
       </div>
     </div>
+    <div class="transactions">
+        <div class="title">
+        Ваша корзина:
+      </div>
+       {% for transaction in transactions %}
+      <div class="item">
+        <div class="image">
+            <img src="{{ transaction.game.image }}">
+        </div>
+        <div class="description">
+          <span>{{ transaction.game.name }}</span>
+        </div>
+        <div class="quantity">
+        <span> {{ transaction.key.key }} </span>
+        </div>
+    </div>{% endfor %}
+    </div>
     <div class="data">
       <div class="password">
           <h3>Изменить пароль:</h3>
