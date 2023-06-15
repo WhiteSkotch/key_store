@@ -87,6 +87,11 @@ font-size: 26px;
     float: right;
 }
 
+.messages span{
+  font-size: 26px;
+  font-weight: 300;
+}
+
 .quantity {
  display: block;
   min-width: 100px;

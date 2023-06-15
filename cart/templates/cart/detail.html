@@ -38,6 +38,13 @@
         </div>
 
     </div>
+       <div class="messages">
+       {% if messages %}
+        {% for message in messages %}
+            <span>{% if message.tags %} {% endif %}{{ message }}</span>
+        {% endfor %}{% endif %}
+   </div>
+   </div>
 </main>
 
 {% endblock %}

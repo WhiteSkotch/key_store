@@ -79,16 +79,14 @@ def add_money_view(request):
         return render(request, 'lk.html', {'form': form, 'money': balance})
 
 
-@login_required
 def add_money_to_user(user, amount):
     money, created = Money.objects.get_or_create(user=user)
     amount_decimal = Decimal(amount)
-    if (amount_decimal>=0):
+    if amount_decimal>=0:
         money.money += amount_decimal
     money.save()
 
 
-@login_required
 def add_money(request):
     if request.method == 'POST':
         amount = request.POST.get('amount')
@@ -101,13 +99,7 @@ def add_money(request):
         return render(request, 'lk.html')
 
 
-# def completed_transactions(request):
-#     transactions = Transaction.objects.filter(user=request.user)
-#     return render(request, 'home', {'transactions': transactions})
-
-
 def get_trans(request):
     transactions = Transaction.objects.filter(user=request.user)
     context1 = {'transactions': transactions}
     redirect(reverse_lazy('home'), context1)
-    # return render(request, 'home', context)

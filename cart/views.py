@@ -56,7 +56,7 @@ def cart_buy(request):
                 game_id = item['game_id']
                 keys = Key.objects.filter(game=game_id, is_sold=False)
                 if len(keys) < item['quantity']:
-                    messages.error(request, 'Not enough keys available for game {}'.format(game_id))
+                    messages.error(request, 'Приносим свои извинения. Недостаточно доступных ключей для игры {}'.format(item['name']))
                     return redirect('cart:detail')
                 for i in range(item['quantity']):
                     tran = Transaction()
@@ -69,13 +69,14 @@ def cart_buy(request):
                     money.money -= item['price']
                     money.save()
             cart.clear()
-            messages.success(request, 'Thank you for your purchase!')
-            return redirect(reverse_lazy('home'))
+            messages.success(request, 'Спасибо за покупку! Ключи вы можете найти в своём личном кабинете.')
+            return redirect(reverse_lazy('cart:detail'))
         else:
-            messages.success(request, 'Ты - нищеброд!')
+            messages.success(request, 'Не хватает денег для покупки! Пополните баланс в личном кабинете.')
             return redirect(reverse_lazy('cart:detail'))
     else:
-        return redirect(reverse_lazy('login'))
+        messages.success(request, 'Вы не авторизированы! Только авторизированные пользователи могут совершать покупки.')
+        return redirect(reverse_lazy('cart:detail'))
 
 
 def cart_detail(request):
@@ -86,4 +87,6 @@ def cart_detail(request):
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(initial={'quantity': item['quantity'], 'update': True})
     return render(request, 'cart/detail.html', {'cart': cart})
+
+
 

@@ -13,6 +13,7 @@
 		<div class="screen__content">
 		<p>Регистрация</p>
 			<form method="post" class="login">
+			<div class="error-message"></div>
                     {% csrf_token %}
                     {{ form.as_p }}
 					<button class="button login__submit"><span class="submit">Зарегистрироваться</span>
@@ -23,16 +24,15 @@
 </div>
 	<script>
 	const applicantForm = document.querySelector('.login__submit');
+	const errorMessage = document.querySelector('.error-message');
       applicantForm.addEventListener('click', (event)=>{
       let pass1=document.getElementsByName("password1")[0].value;
       let pass2=document.getElementsByName("password2")[0].value;
       if (pass1!=pass2)
           {
           		event.preventDefault();
-                console.log('hui');
+                errorMessage.textContent = 'Passwords do not match';
           }
-
-
 }
 );
 	</script>
