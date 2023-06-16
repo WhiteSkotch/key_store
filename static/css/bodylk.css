@@ -1,3 +1,6 @@
+a {
+  text-decoration: none;
+}
 
 .container {
   min-width: 1000px;
@@ -14,21 +17,56 @@ font-family: sans-serif, Arial;
   background-color: white;
 }
  
+.balance {
+  margin-top: 8px;
+}
+
+.balance_button {
+  background-color: #FF6733;
+  padding: 8px;
+  color: white;
+  border: none;
+  width: 82px;
+}
+
+.balance_input {
+  width: 106px;
+  padding: 8px;
+  border: none;
+  background-color: #232323;
+  color: white;
+}
+
+.highlighting {
+  color: #FF6733;
+  font-weight: 600;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 .avatarnick
 {
     display: flex;
-    padding: 50px;
-    min-height: 150px;
+    background-color: white;
+    margin: auto;
 }
 
 .avatar
 {
     width: 200px;
     height: 200px;
-    background-color: black;
     display: block;
-    padding: 10px;
+    /* border-radius: 50%; */
+    border: 2px solid black;
 }
 
 
@@ -129,16 +167,13 @@ font-family: sans-serif, Arial;
 }
 .right-column {
   width: 20%;
-  margin-top: 60px;
   margin-left: 20px;
 }
 
 
- .nav-top
-{
-    width: 200px;
-    height: 150px;
-}
+ .nav-top {
+  position: relative;
+ }
 .nav-li
 {
     background-color: white;
@@ -186,9 +221,11 @@ font-family: sans-serif, Arial;
   letter-spacing: -2px;
 }
 .product-requirements h3 {
+  margin-top: 24px;
+  margin-bottom: 8px;
   font-weight: 300;
-    font-size: 24px;
-  color: gold;
+  font-size: 24px;
+  color: #fff;
   letter-spacing: -2px;
 }
  .product-requirements {
@@ -197,6 +234,19 @@ font-family: sans-serif, Arial;
 }
 .product-requirements ul {
     color: white;
+}
+
+.logout {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
 }
 
 .quantity {
@@ -227,7 +277,7 @@ font-family: sans-serif, Arial;
 .transactions {
   width: 750px;
   min-height: 250px;
-  margin: 80px auto 0px;
+  margin: 32px auto 0px;
   background: white;
   box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
   border-radius: 10px 10px 0 0;
@@ -259,4 +309,6 @@ font-family: sans-serif, Arial;
   font-size: 36px;
   font-weight: 400;
   display: inline-block;
+  color: #333;
+  border-bottom: #333 2px solid;
 }

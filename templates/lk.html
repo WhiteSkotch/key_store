@@ -10,21 +10,16 @@
 <main class="container">
 
   <div class="left-column">
-    <div class="avatarnick">
-      <div class="nick">
-         <h2>{{ user.username }}</h2>
-         <span>{{ user.balance.first.money }}</span>
-      </div>
-    </div><div class="title"> Ваши ключи:</div>
+    <div class="title"> Ваши ключи:</div>
     <div class="transactions">
 
-       {% for transaction in transactions %}
+      {% for transaction in transactions %}
       <div class="transaction">
         <div class="image">
             <img src="{{ transaction.game.image.url }}">
         </div>
         <div class="description">
-          <span>{{ transaction.game.name }}</span>
+          <a href="/games/{{ transaction.game.pk }}">{{ transaction.game.name }}</a>
         </div>
         <div class="quantity">
         <span> {{ transaction.key.key }} </span>
@@ -56,30 +51,28 @@
 <!--					<span class="button__text">Сменить пароль</span>-->
 <!--				</button>-->
 </div>
-
-    <div>
-      <form method="post" action="{% url 'add_money' %}">
-          {% csrf_token %}
-          <label for="amount">Amount:</label>
-          <input type="number" id="amount" name="amount">
-          <button type="submit">Add Money</button>
-      </form>
-    </div>
-    <div><p>Ваш баланс: {{ money }}</p></div>
 <!--      <div><p>Ваш баланс: <"{% url 'add_money' %}"></p></div>-->
   </div>
   <div class="right-column">
-<div class="nav-top">
-
-</div>
-    <div class="product-requirements">
-    <h3>Навигация</h3>
-
-    <ul>
-<li class="nav-li"> <a href=""> Мои покупки</a> </li>
-<li class="nav-li"> <a href=""> Мои данные</a> </li>
-<li class="nav-li"> <a href="{% url 'logout' %}"> Выход</a> </li>
-    </ul>
+    <div class="nav-top">
+      <div class="avatarnick">
+        <div class="nick">
+           <h2 style="width: fit-content;">{{ user.username }}</h2>
+           <img src="{% static 'img/avatar.png' %}" alt="avatar" class="avatar">
+           <div class="balance">
+            <div><p><span class="highlighting">Ваш</span> баланс: {{ money }} ₽</p></div>
+            <div>
+              <form method="post" action="{% url 'add_money' %}">
+                  {% csrf_token %}
+                  <input class="balance_input" type="number" id="amount" name="amount"><button class="balance_button" ="submit">Пополнить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="logout">
+        <a href="{% url 'logout' %}"><img src="{% static 'img/svg/logout-red.svg' %}" alt="Logout icon" class="icon"></a>
+      </div>
     </div>
   </div>
 </main>
