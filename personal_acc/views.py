@@ -94,9 +94,9 @@ def add_money(request):
         add_money_to_user(user, amount)
         money = Money.objects.get(user=request.user)
         context = {'money': money.money}
-        return render(request, 'lk.html', context)
+        return redirect(reverse_lazy('home'))
     else:
-        return render(request, 'lk.html')
+        return redirect(reverse_lazy('home'))
 
 
 def get_trans(request):
