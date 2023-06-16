@@ -38,11 +38,14 @@
         </div>
 
     </div>
+      {% if messages %}
        <div class="messages">
        {% if messages %}
         {% for message in messages %}
             <span>{% if message.tags %} {% endif %}{{ message }}</span>
-        {% endfor %}{% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endif %}
    </div>
    </div>
 </main>
