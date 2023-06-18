@@ -1,4 +1,5 @@
 {% load static %}
+{% load games %}
 
 <header>
     <ul class="nav">
@@ -35,6 +36,16 @@
     </ul>
 </header>
 <script>
+    var games_json = (("{% get_games_names %}").replace(/&(l|g|quo)t;/g, function(a,b){
+                return {
+                    l   : '<',
+                    g   : '>',
+                    quo : '"'
+                }[b];
+            }));
+
+    games = JSON.parse(games_json);
+    
     const searchtext = document.getElementById('search_text');
     const searchresult = document.querySelector("#search_result");
     searchtext.addEventListener('input', (event) => {
@@ -42,11 +53,11 @@
         searchresult.style.display = "block";
         document.querySelector("#search_result").innerHTML = "";
         let value=document.querySelector('[name="search_text"]').value.trim().toLowerCase();
-        document.querySelectorAll('.card').forEach(item => {
-            let title=item.querySelector('.card__title');
-            if (title && title.textContent.trim().toLowerCase().includes(value)) {
-                let name=title.textContent.trim();
-                let ref=title.href;
+        games.forEach(game => {
+            let name = game[1];
+            let game_id = game[0];
+            if (name && name.toLowerCase().includes(value)) {
+                let ref = `/games/${game_id}/`;
                 let cont=document.querySelector("#search_result");
                 let li=document.createElement("li");
                 let a=document.createElement("a");
@@ -55,8 +66,7 @@
                 a.textContent=name;
                 li.append(a);
             }
-        }
-  );
+        });
         if (document.querySelector("#search_result").innerHTML === "")
         {
              let cont=document.querySelector("#search_result");
