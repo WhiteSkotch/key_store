@@ -36,7 +36,7 @@
     </ul>
 </header>
 <script>
-    var games_json = (("{% get_games_names %}").replace(/&(l|g|quo)t;/g, function(a,b){
+    var games_json = (("{% get_games_names %}").replace('&#x27;', "'").replace(/&(l|g|quo)t;/g, function(a,b){
                 return {
                     l   : '<',
                     g   : '>',
