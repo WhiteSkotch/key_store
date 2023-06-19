@@ -1,4 +1,229 @@
+@media screen and (min-width: 1600px)  {
+
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
+
+@keyframes sliding {
+  0% {left: 0;}
+  30% {left: 0;}
+  33% {left: -100vw;}
+  63% {left: -100vw;}
+  66% {left: -200vw;}
+  96% {left: -200vw;}
+  99% {left: -300vw;}
+}
+
+.card {
+  width: 250px;
+  min-height: 380px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Размещаем элементы в колонку */
+  border-radius: 4px;
+  transition: .3s;
+  position: relative;
+  background-color: gray;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+/* При наведении на карточку - меняем цвет тени */
+.card:hover {
+  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+  border: rgba(255, 102, 51) 1px solid;
+  transform: scale(1.1);
+}
+
+.card__top {
+  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+  position: relative;
+  overflow: hidden; /* Скрываем, что выходит за пределы */
+ border-radius: 20px;
+
+}
+
+/* Контейнер для картинки */
+.card__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__image > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
+}
+
+/* Размещаем скидку на товар относительно изображения */
+.card__label {
+  padding: 4px 8px;
+  background: #FF6733;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+.card__bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+  padding: 10px;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  margin-top: 24px;
+}
+
+
+
+.card__price {
+  font-weight: 400;
+  font-size: 17px;
+}
+
+
+.card__title {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  font-size: 24px;
+  line-height: 150%;
+  color: #fff;
+  text-align: left;
+  min-height: 30px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.card__title:hover {
+  color: #ff6633;
+}
+
+.card__add {
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  color: #70c05b;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #70c05b;
+  border-radius: 4px;
+  cursor: pointer; /* Меняем курсор при наведении */
+  transition: 0.2s;
+  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+  border: 1px solid #ff6633;
+  background-color: #ff6633;
+  color: #fff;
+}
+
+.cards {
+  top: 630px;
+  display: flex;
+    flex-wrap: wrap;
+  /* Автоматически заполняем на всю ширину grid-контейнера */
+  width: 100%;
+  max-width: 1500px; /* Ширина grid-контейнера */
+  justify-content:flex-start;
+  justify-items: center; /* Размещаем карточку по центру */
+  margin: 90px auto 0;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.icon_button {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  position: relative;
+  left: 80%;
+  top: 12px;
+  transition: .3s;
+  background-color: rgba(51, 51, 51, .5);
+}
+
+.icon_button:hover {
+  background-color: #ff6633;
+}
+
+.full_page_poster {
+  margin-top: 60px;
+  width: 100%;
+  height: 700px;
+  background-color: red;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 400vw;
+  height: inherit;
+  position: relative;
+  animation: sliding 12s linear infinite;
+}
+
+.slide {
+  width: 100vw;
+  height: inherit;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: inline-block;
+}
+
+.slide .info {
+  color: white;
+  font-family: 'Jost', sans-serif;
+  position: absolute;
+  bottom: 24px;
+  left: 48px;
+}
+
+.slide .info h3 {
+  font-size: 48px;
+  margin-bottom: 8px;
+  /* text-decoration: 1px solid white underline; */
+}
+
+.slide .info .description {
+  max-width: 70%;
+  /* font-family: 'Arial', sans-serif; */
+  font-size: 24px;
+}
+
+.more_button {
+  color: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+  padding: 18px;
+  border: 2px solid white;
+  position: absolute;
+  right: 48px;
+  bottom: 30px;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: .2s;
+}
+
+.more_button:hover {
+  color: #ffddd1;
+  border-color: #ffddd1;
+}
+}
+
+@media screen and (min-width: 1280px) and (max-width:1599px) {
+    @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
 
 @keyframes sliding {
   0% {left: 0;}
@@ -217,4 +442,229 @@
 .more_button:hover {
   color: #ffddd1;
   border-color: #ffddd1;
+}
+}
+
+@media screen  and (max-width:1279px) {
+    
+     @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
+
+@keyframes sliding {
+  0% {left: 0;}
+  30% {left: 0;}
+  33% {left: -100vw;}
+  63% {left: -100vw;}
+  66% {left: -200vw;}
+  96% {left: -200vw;}
+  99% {left: -300vw;}
+}
+
+.card {
+  width: 220px;
+  min-height: 380px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Размещаем элементы в колонку */
+  border-radius: 4px;
+  transition: .3s;
+  position: relative;
+  background-color: gray;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+/* При наведении на карточку - меняем цвет тени */
+.card:hover {
+  box-shadow: 4px 8px 16px rgba(255, 102, 51, 0.2);
+  border: rgba(255, 102, 51) 1px solid;
+  transform: scale(1.1);
+}
+
+.card__top {
+  flex: 0 0 220px; /* Задаем высоту 220px, запрещаем расширение и сужение по высоте */
+  position: relative;
+  overflow: hidden; /* Скрываем, что выходит за пределы */
+ border-radius: 20px;
+
+}
+
+/* Контейнер для картинки */
+.card__image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card__image > img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Встраиваем картинку в контейнер card__image */
+  transition: 0.2s;
+}
+
+/* Размещаем скидку на товар относительно изображения */
+.card__label {
+  padding: 4px 8px;
+  background: #FF6733;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+.card__bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto; /* Занимаем всю оставшуюся высоту карточки */
+  padding: 10px;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  margin-top: 24px;
+}
+
+
+
+.card__price {
+  font-weight: 400;
+  font-size: 17px;
+}
+
+
+.card__title {
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  font-size: 24px;
+  line-height: 150%;
+  color: #fff;
+  text-align: left;
+  min-height: 30px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.card__title:hover {
+  color: #ff6633;
+}
+
+.card__add {
+  display: block;
+  width: 100%;
+  font-size: 17px;
+  color: #70c05b;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #70c05b;
+  border-radius: 4px;
+  cursor: pointer; /* Меняем курсор при наведении */
+  transition: 0.2s;
+  margin-top: auto; /* Прижимаем кнопку к низу карточки */
+}
+
+.card__add:hover {
+  border: 1px solid #ff6633;
+  background-color: #ff6633;
+  color: #fff;
+}
+
+.cards {
+  top: 630px;
+  display: flex;
+  flex-wrap: wrap;
+  /* Автоматически заполняем на всю ширину grid-контейнера */
+  width: 100%;
+  max-width: 800px; /* Ширина grid-контейнера */
+  justify-content:flex-start;
+  justify-items: center; /* Размещаем карточку по центру */
+  margin: 90px auto 0;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+}
+
+.icon_button {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  position: relative;
+  left: 80%;
+  top: 12px;
+  transition: .3s;
+  background-color: rgba(51, 51, 51, .5);
+}
+
+.icon_button:hover {
+  background-color: #ff6633;
+}
+
+.full_page_poster {
+  margin-top: 60px;
+  width: 100%;
+  height: 700px;
+  background-color: red;
+  overflow: hidden;
+}
+
+.carousel {
+  width: 400vw;
+  height: inherit;
+  position: relative;
+  animation: sliding 12s linear infinite;
+}
+
+.slide {
+  width: 100vw;
+  height: inherit;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: inline-block;
+}
+
+.slide .info {
+  color: white;
+  font-family: 'Jost', sans-serif;
+  position: absolute;
+  bottom: 24px;
+  left: 48px;
+}
+
+.slide .info h3 {
+  font-size: 48px;
+  margin-bottom: 8px;
+  /* text-decoration: 1px solid white underline; */
+}
+
+.slide .info .description {
+  max-width: 70%;
+  /* font-family: 'Arial', sans-serif; */
+  font-size: 24px;
+}
+
+.more_button {
+  color: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 18px;
+  padding: 18px;
+  border: 2px solid white;
+  position: absolute;
+  right: 48px;
+  bottom: 30px;
+  text-decoration: none;
+  border-radius: 14px;
+  transition: .2s;
+}
+
+.more_button:hover {
+  color: #ffddd1;
+  border-color: #ffddd1;
+}
 }

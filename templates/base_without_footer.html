@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+    {% block styles %} {% endblock %}
+
+    <title>Lohotron.ru</title>
+</head>
+<body>
+
+    {% include 'header.html' %}
+
+    {% block content %} {% endblock %}
+
+</body>
+</html>

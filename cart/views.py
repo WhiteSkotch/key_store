@@ -3,11 +3,8 @@ from django.views.decorators.http import require_POST
 from accounts.models import Game, Key, Transaction, Money
 from .cart import Cart
 from .forms import CartAddProductForm
-from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import login_required
-from test_project.settings import LOGIN_REDIRECT_URL
 
 @require_POST
 def cart_add(request, game_id):

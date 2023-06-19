@@ -13,7 +13,7 @@ from django import forms
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.decorators import login_required
-
+from django.contrib import messages
 
 class ChangePasswordForm(forms.Form):
     old_password = forms.CharField(widget=forms.PasswordInput())
@@ -82,7 +82,7 @@ def add_money_view(request):
 def add_money_to_user(user, amount):
     money, created = Money.objects.get_or_create(user=user)
     amount_decimal = Decimal(amount)
-    if amount_decimal>=0:
+    if amount_decimal >= 0:
         money.money += amount_decimal
     money.save()
 
@@ -91,10 +91,19 @@ def add_money(request):
     if request.method == 'POST':
         amount = request.POST.get('amount')
         user = request.user
-        add_money_to_user(user, amount)
-        money = Money.objects.get(user=request.user)
-        context = {'money': money.money}
-        return redirect(reverse_lazy('home'))
+        if not amount:
+            messages.success(request, 'Вы должны ввести количество денег.')
+            return redirect(reverse_lazy('home'))
+        else:
+            if Decimal(amount) < 0:
+                messages.success(request, 'Вы должны ввести положительное количество денег.')
+                return redirect(reverse_lazy('home'))
+            else:
+                add_money_to_user(user, amount)
+                money = Money.objects.get(user=request.user)
+                context = {'money': money.money}
+                messages.success(request, 'Деньги успешно зачислены на ваш аккаунт.')
+                return redirect(reverse_lazy('home'))
     else:
         return redirect(reverse_lazy('home'))
 

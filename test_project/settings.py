@@ -107,8 +107,8 @@ AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-#'ru-RU'
+LANGUAGE_CODE = 'ru-RU'
+#'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

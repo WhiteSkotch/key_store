@@ -7,6 +7,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
+<head><title>Личный кабинет</title></head>
 <main class="container">
 
   <div class="left-column">
@@ -26,33 +27,7 @@
         </div>
     </div>{% endfor %}
     </div>
-<div class="data">
-<!--      <div class="password">-->
-<!--          {% include 'change_password.html' %}-->
-<!--          {% block c %}{% endblock %}-->
-<!--          <h3>Изменить пароль:</h3>-->
-<!--          <form method="post">-->
-<!--    {% csrf_token %}-->
-<!--    {{ form.as_p }}-->
-<!--    <button class="button submit">-->
-<!--					<span class="button__text">Сменить пароль</span>-->
-<!--				</button>-->
-<!--    </form>-->
-<!--          <div class="field">-->
-<!--        <input type="field" class="form" placeholder="Ваш старый пароль">-->
-<!--				</div>-->
-<!--				<div class="field">-->
-<!--					<input type="password" class="form" placeholder="Новый пароль">-->
-<!--				</div>-->
-<!--				 <div class="field">-->
-<!--					<input type="password" class="form" placeholder="Подтвердите новый пароль">-->
-<!--				</div>-->
-<!--				<button class="button submit">-->
-<!--					<span class="button__text">Сменить пароль</span>-->
-<!--				</button>-->
 </div>
-<!--      <div><p>Ваш баланс: <"{% url 'add_money' %}"></p></div>-->
-  </div>
   <div class="right-column">
     <div class="nav-top">
       <div class="avatarnick">
@@ -67,6 +42,7 @@
                   <input class="balance_input" type="number" id="amount" name="amount"><button class="balance_button" ="submit">Пополнить</button>
               </form>
             </div>
+            <div class="changepass"><span><a href="{% url 'change_password'%}">Сменить пароль</a></span></div>
           </div>
         </div>
       </div>
@@ -74,7 +50,17 @@
         <a href="{% url 'logout' %}"><img src="{% static 'img/svg/logout-red.svg' %}" alt="Logout icon" class="icon"></a>
       </div>
     </div>
+     {% if messages %}
+       <div class="messages">
+       {% if messages %}
+        {% for message in messages %}
+            <span>{% if message.tags %} {% endif %}{{ message }}</span>
+        {% endfor %}
+        {% endif %}
+        {% endif %}
+       </div>
   </div>
+
 </main>
 {% else %}
     <p>You are not logged in.</p>

@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block styles %}
-<link rel="stylesheet" href="{% static 'css/body_log_reg.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static 'css/body_reg.css'%}" type="text/css">
 {% endblock %}
 
 {% block content %}
-
+<head><title>Регистрация</title></head>
 <main>
     <div class="container">
 	<div class="screen">
@@ -31,7 +31,7 @@
       if (pass1!=pass2)
           {
           		event.preventDefault();
-                errorMessage.textContent = 'Passwords do not match';
+                errorMessage.textContent = 'Пароли не совпадают';
           }
 }
 );
